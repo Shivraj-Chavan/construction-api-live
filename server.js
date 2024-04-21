@@ -14,7 +14,7 @@ const doc=require("./swagger-output.json")
 app.use("/api-docs",ui.serve,ui.setup(doc))
 app.use("/api/v1/",router)
 
-const PORT=process.env.PORT || 8800
+const PORT=process.env.PORT || 8808
 getConnection()
 .then(()=>{
     app.listen(PORT, () => {
