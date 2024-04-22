@@ -1,11 +1,11 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "My API",
+    "title": "Constuction website API",
     "description": "Description",
     "version": "1.0.0"
   },
-  "host": "localhost:8800",
+  "host": "localhost:4000",
   "basePath": "/",
   "schemes": [
     "http"

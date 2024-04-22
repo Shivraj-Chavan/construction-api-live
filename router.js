@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { Slider, Project, Client, ContactHR, Blog, ContactForm, Heading } = require('./models');
 
+
 // Routes for Slider model
 router.get('/sliders', async (req, res) => {
     try {
