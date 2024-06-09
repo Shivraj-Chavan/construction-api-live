@@ -8,7 +8,7 @@
   "host": "195.35.20.235:4000",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/api/v1/sliders": {
