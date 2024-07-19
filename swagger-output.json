@@ -8,7 +8,7 @@
   "host": "195.35.20.235",
   "basePath": "/",
   "schemes": [
-    "https"
+    "http"
   ],
   "paths": {
     "/api/v1/sliders": {
@@ -122,6 +122,9 @@
             "schema": {
               "type": "object",
               "properties": {
+                "category": {
+                  "example": "any"
+                },
                 "heading": {
                   "example": "any"
                 },
@@ -218,7 +221,7 @@
                 "description": {
                   "example": "any"
                 },
-                "url": {
+                "name": {
                   "example": "any"
                 }
               }
@@ -305,10 +308,10 @@
                 "heading": {
                   "example": "any"
                 },
-                "description": {
+                "name": {
                   "example": "any"
                 },
-                "url": {
+                "mail": {
                   "example": "any"
                 }
               }
@@ -401,7 +404,7 @@
                 "url": {
                   "example": "any"
                 },
-                "title": {
+                "date": {
                   "example": "any"
                 },
                 "keywords": {
@@ -491,10 +494,13 @@
             "schema": {
               "type": "object",
               "properties": {
-                "heading": {
+                "name": {
                   "example": "any"
                 },
-                "description": {
+                "email": {
+                  "example": "any"
+                },
+                "phone": {
                   "example": "any"
                 },
                 "message": {

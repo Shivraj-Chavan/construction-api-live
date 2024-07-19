@@ -30,6 +30,11 @@ const ProjectSchema = new mongoose.Schema({
         required: [true, 'Heading is required'],
         trim: true,
     },
+    category:{
+        type: String,
+        required: [true, 'Category is required'],
+        trim: true, 
+    },
     description: {
         type: String,
         required: [true, 'Description is required'],
@@ -59,16 +64,11 @@ const ClientSchema = new mongoose.Schema({
         required: [true, 'Description is required'],
         trim: true,
     },
-    url: {
+    name: {
         type: String,
-        required: [true, 'URL is required'],
+        required: [true, 'Name is required'],
         trim: true,
-        validate: {
-            validator: function(v) {
-                return /^https?:\/\/.+\..+$/.test(v);
-            },
-            message: 'Invalid URL format',
-        },
+       
     },
 });
 
@@ -78,21 +78,15 @@ const ContactHRSchema = new mongoose.Schema({
         required: [true, 'Heading is required'],
         trim: true,
     },
-    description: {
+    name: {
         type: String,
-        required: [true, 'Description is required'],
+        required: [true, 'Name is required'],
         trim: true,
     },
-    url: {
+    mail: {
         type: String,
-        required: [true, 'URL is required'],
+        required: [true, 'Mail is required'],
         trim: true,
-        validate: {
-            validator: function(v) {
-                return /^https?:\/\/.+\..+$/.test(v);
-            },
-            message: 'Invalid URL format',
-        },
     },
 });
 
@@ -118,9 +112,9 @@ const BlogSchema = new mongoose.Schema({
             message: 'Invalid URL format',
         },
     },
-    title: {
+    date: {
         type: String,
-        required: [true, 'Title is required'],
+        required: [true, 'Date is required'],
         trim: true,
     },
     keywords: {
@@ -135,14 +129,19 @@ const BlogSchema = new mongoose.Schema({
 });
 
 const ContactFormSchema = new mongoose.Schema({
-    heading: {
+    name: {
         type: String,
-        required: [true, 'Heading is required'],
+        required: [true, 'Name is required'],
         trim: true,
     },
-    description: {
+    email: {
         type: String,
-        required: [true, 'Description is required'],
+        required: [true, 'Email is required'],
+        trim: true,
+    },
+    phone: {
+        type: String,
+        required: [true, 'Phone is required'],
         trim: true,
     },
     message: {

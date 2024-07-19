@@ -65,11 +65,11 @@ router.get('/projects', async (req, res) => {
 
 router.post('/projects', async (req, res) => {
     try {
-        const { heading, description, url } = req.body;
-        if (!heading || !description || !url) {
-            return res.status(400).json({ message: "Please provide heading, description, and URL for the project." });
+        const {category, heading, description, url } = req.body;
+        if (!category || !heading || !description || !url) {
+            return res.status(400).json({ message: "Please provide category, heading, description, and URL for the project." });
         }
-        const project = new Project({ heading, description, url });
+        const project = new Project({ category,heading, description, url });
         const newProject = await project.save();
         res.status(201).json(newProject);
     } catch (error) {
@@ -115,11 +115,11 @@ router.get('/clients', async (req, res) => {
 
 router.post('/clients', async (req, res) => {
     try {
-        const { heading, description, url } = req.body;
-        if (!heading || !description || !url) {
-            return res.status(400).json({ message: "Please provide heading, description, and URL for the client." });
+        const { heading, description, name } = req.body;
+        if (!heading || !description || !name) {
+            return res.status(400).json({ message: "Please provide heading, description, and name for the client." });
         }
-        const client = new Client({ heading, description, url });
+        const client = new Client({ heading, description, name });
         const newClient = await client.save();
         res.status(201).json(newClient);
     } catch (error) {
@@ -165,11 +165,11 @@ router.get('/contact-hrs', async (req, res) => {
 
 router.post('/contact-hrs', async (req, res) => {
     try {
-        const { heading, description, url } = req.body;
-        if (!heading || !description || !url) {
-            return res.status(400).json({ message: "Please provide heading, description, and URL for the contact HR." });
+        const { heading, name, mail } = req.body;
+        if (!heading || !name || !mail) {
+            return res.status(400).json({ message: "Please provide heading, name, and mail for the contact HR." });
         }
-        const contactHR = new ContactHR({ heading, description, url });
+        const contactHR = new ContactHR({ heading, name, mail });
         const newContactHR = await contactHR.save();
         res.status(201).json(newContactHR);
     } catch (error) {
@@ -214,11 +214,11 @@ router.get('/blogs', async (req, res) => {
 
 router.post('/blogs', async (req, res) => {
     try {
-        const { heading, description, url, title, keywords, metaDescription } = req.body;
-        if (!heading || !description || !url || !title || !keywords || !metaDescription) {
+        const { heading, description, url, date, keywords, metaDescription } = req.body;
+        if (!heading || !description || !url || !date || !keywords || !metaDescription) {
             return res.status(400).json({ message: "Please provide all required fields for the blog." });
         }
-        const blog = new Blog({ heading, description, url, title, keywords, metaDescription });
+        const blog = new Blog({ heading, description, url, date, keywords, metaDescription });
         const newBlog = await blog.save();
         res.status(201).json(newBlog);
     } catch (error) {
@@ -264,11 +264,11 @@ router.get('/contact-forms', async (req, res) => {
 
 router.post('/contact-forms', async (req, res) => {
     try {
-        const { heading, description, message } = req.body;
-        if (!heading || !description || !message) {
-            return res.status(400).json({ message: "Please provide heading, description, and message for the contact form." });
+        const { name,email,phone,message } = req.body;
+        if (!name || !email || !phone || message) {
+            return res.status(400).json({ message: "Please provide name, email,phone and message for the contact form." });
         }
-        const contactForm = new ContactForm({ heading, description, message });
+        const contactForm = new ContactForm({ name,email,phone, message });
         const newContactForm = await contactForm.save();
         res.status(201).json(newContactForm);
     } catch (error) {
