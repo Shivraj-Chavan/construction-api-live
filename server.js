@@ -21,22 +21,22 @@ app.use('/api-docs', ui.serve, ui.setup(doc));
 app.use('/api/v1/', router);
 
 // Load the SSL certificate and key
-// const sslOptions = {
-//   key: fs.readFileSync('/etc/ssl/private/selfsigned.key'),
-//   cert: fs.readFileSync('/etc/ssl/certs/selfsigned.crt')
-// };
+const sslOptions = {
+  key: fs.readFileSync('/etc/ssl/private/selfsigned.key'),
+  cert: fs.readFileSync('/etc/ssl/certs/selfsigned.crt')
+};
 
 // HTTP redirect to HTTPS (optional but recommended)
-// const http = require('http');
-// http.createServer((req, res) => {
-//   res.writeHead(301, { 'Location': `https://${req.headers['host']}${req.url}` });
-//   res.end();
-// }).listen(80);
+const http = require('http');
+http.createServer((req, res) => {
+  res.writeHead(301, { 'Location': `https://${req.headers['host']}${req.url}` });
+  res.end();
+}).listen(80);
 
 const PORT = process.env.PORT || 443; // Default to 443 for HTTPS
 getConnection()
   .then(() => {
-    app.listen(PORT, () => {
+    https.createServer(sslOptions, app).listen(PORT, () => {
       console.log(`Server is running securely on port ${PORT}`);
     });
   })
