@@ -12,7 +12,7 @@ dotenv.config();
 app.use(express.json());
 app.use(cors());
 
-// Swagger documentation
+// Swagger documentationn
 const ui = require('swagger-ui-express');
 const doc = require('./swagger-output.json');
 app.use('/api-docs', ui.serve, ui.setup(doc));
